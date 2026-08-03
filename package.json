@@ -1,6 +1,6 @@
 {
   "name": "mikan-desk-cat",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A tiny cross-platform desktop cat made from your own cat photos.",
   "main": "src/main.js",
   "author": "desk-pet",
@@ -10,9 +10,9 @@
     "dev": "electron .",
     "test": "node --test",
     "dist": "npm run dist:mac && npm run dist:win",
-    "dist:mac": "electron-builder --mac --arm64",
-    "dist:win": "electron-builder --win --x64",
-    "dist:win:arm64": "electron-builder --win --arm64"
+    "dist:mac": "electron-builder --mac --arm64 --publish never",
+    "dist:win": "electron-builder --win --x64 --publish never",
+    "dist:win:arm64": "electron-builder --win --arm64 --publish never"
   },
   "devDependencies": {
     "electron": "^38.0.0",
