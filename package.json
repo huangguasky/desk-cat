@@ -1,6 +1,6 @@
 {
   "name": "mikan-desk-cat",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A tiny cross-platform desktop cat made from your own cat photos.",
   "main": "src/main.js",
   "author": "desk-pet",

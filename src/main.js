@@ -68,7 +68,8 @@ function safePosition(saved) {
 function applyAlwaysOnTop(enabled) {
   alwaysOnTop = Boolean(enabled);
   if (!petWindow || petWindow.isDestroyed()) return;
-  petWindow.setAlwaysOnTop(alwaysOnTop, alwaysOnTop ? 'floating' : 'normal');
+  const level = process.platform === 'win32' ? 'pop-up-menu' : 'floating';
+  petWindow.setAlwaysOnTop(alwaysOnTop, alwaysOnTop ? level : 'normal');
   petWindow.webContents.send('pet:always-on-top', alwaysOnTop);
   scheduleSave();
   refreshTrayMenu();
@@ -281,7 +282,8 @@ function createWindow() {
     },
   });
 
-  petWindow.setAlwaysOnTop(alwaysOnTop, alwaysOnTop ? 'floating' : 'normal');
+  const alwaysOnTopLevel = process.platform === 'win32' ? 'pop-up-menu' : 'floating';
+  petWindow.setAlwaysOnTop(alwaysOnTop, alwaysOnTop ? alwaysOnTopLevel : 'normal');
   petWindow.setVisibleOnAllWorkspaces(true, { visibleOnFullScreen: true });
   petWindow.webContents.on('console-message', (details) => {
     rendererMessages.push(details.message);
@@ -289,6 +291,7 @@ function createWindow() {
   petWindow.loadFile(path.join(__dirname, 'index.html'));
   petWindow.once('ready-to-show', () => {
     petWindow.showInactive();
+    petWindow.setAlwaysOnTop(alwaysOnTop, alwaysOnTop ? alwaysOnTopLevel : 'normal');
     const dragTestPath = process.env.DESK_PET_DRAG_TEST_PATH;
     const capturePath = process.env.DESK_PET_CAPTURE_PATH;
     if (dragTestPath) {
