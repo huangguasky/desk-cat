@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'" />
+    <title>Mikan Desk Cat</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main id="pet" aria-label="桌面猫咪" title="拖动我，左键互动，右键打开菜单">
+      <img id="sprite" class="sprite pose-idle" src="../assets/generated/gifs/idle.gif" alt="一只白色虎斑猫" draggable="false" />
+      <div id="zzz" class="zzz" aria-hidden="true"><i>Z</i><i>z</i><i>z</i></div>
+      <div id="sparkles" class="sparkles" aria-hidden="true"><i>♥</i><i>✦</i><i>♥</i></div>
+    </main>
+    <aside id="preview-note">浏览器预览模式 · 可以在页面里拖动猫咪</aside>
+    <script src="pet-state.js"></script>
+    <script src="renderer.js"></script>
+  </body>
+</html>

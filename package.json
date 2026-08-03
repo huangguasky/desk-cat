@@ -1,0 +1,51 @@
+{
+  "name": "mikan-desk-cat",
+  "version": "1.0.0",
+  "description": "A tiny cross-platform desktop cat made from your own cat photos.",
+  "main": "src/main.js",
+  "author": "desk-pet",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron .",
+    "test": "node --test",
+    "dist": "npm run dist:mac && npm run dist:win",
+    "dist:mac": "electron-builder --mac --arm64",
+    "dist:win": "electron-builder --win --x64",
+    "dist:win:arm64": "electron-builder --win --arm64"
+  },
+  "devDependencies": {
+    "electron": "^38.0.0",
+    "electron-builder": "^26.0.12"
+  },
+  "build": {
+    "appId": "com.deskpet.mikan",
+    "productName": "Mikan Desk Cat",
+    "asar": true,
+    "files": [
+      "src/**/*",
+      "assets/generated/gifs/*.gif",
+      "assets/icons/**/*",
+      "package.json"
+    ],
+    "directories": {
+      "output": "release",
+      "buildResources": "assets/icons"
+    },
+    "mac": {
+      "category": "public.app-category.entertainment",
+      "icon": "assets/icons/icon.icns",
+      "target": ["dmg", "zip"]
+    },
+    "win": {
+      "icon": "assets/icons/icon.ico",
+      "target": ["nsis", "portable"]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "shortcutName": "Mikan Desk Cat"
+    }
+  }
+}

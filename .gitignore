@@ -1,0 +1,10 @@
+node_modules/
+release/
+.DS_Store
+npm-debug.log*
+assets/references/IMG_*.png
+assets/references/IMG_*_preview.png
+assets/generated/*-chroma.png
+assets/generated/*-edit-target-chroma.png
+assets/generated/runtime-*.png
+assets/generated/animation-sheets/*-chroma.png
