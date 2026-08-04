@@ -48,6 +48,17 @@ npm run dist:win
 成品安装包会出现在 `release` 目录。通常建议在对应系统上构建对应安装包；界面和窗口逻辑本身同时支持 Windows 与 macOS。
 默认会生成 Apple Silicon macOS 包和 x64 Windows 包；Windows on ARM 可使用 `npm run dist:win:arm64`。
 
+### 打开 GitHub Release 中的 macOS 版本
+
+macOS 包使用 ad-hoc 签名，不需要 Apple Developer 账号，但系统无法验证开发者。首次打开时：
+
+1. 尝试打开应用一次，然后关闭系统提示。
+2. 打开“系统设置 → 隐私与安全性”。
+3. 在安全性区域找到被阻止的 `Mikan Desk Cat`，点击“仍要打开”。
+4. 再次确认“打开”。后续启动不需要重复操作。
+
+也可以在 Finder 中按住 Control 键点按应用，选择“打开”，然后再次确认。请仅对从本项目 GitHub Release 下载的安装包执行这些操作。
+
 ## 素材说明
 
 应用运行与打包只使用 `assets/generated/gifs/` 中的 11 个最终 GIF，不包含原始猫咪照片、基础姿态表或动画九宫格。提示词和完整换猫流程集中保存在 [ASSET_GENERATION.md](ASSET_GENERATION.md)。

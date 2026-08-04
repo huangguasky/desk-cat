@@ -35,6 +35,8 @@
     "mac": {
       "category": "public.app-category.entertainment",
       "icon": "assets/icons/icon.icns",
+      "identity": "-",
+      "hardenedRuntime": false,
       "target": ["dmg", "zip"]
     },
     "win": {
